@@ -10,21 +10,34 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), day: 1)
-    }
-    
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), day: 1)
-        completion(entry)
-    }
+            let currentDate = Date()
+            let currentDayIndex = Calendar.current.component(.weekday, from: currentDate) - 1
+
+            return SimpleEntry(date: currentDate, day: (1 + currentDayIndex) % 7 + 1)
+        }
+
+        func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+            let currentDate = Date()
+            let currentDayIndex = Calendar.current.component(.weekday, from: currentDate) - 1
+
+            let entry = SimpleEntry(date: currentDate, day: (1 + currentDayIndex) % 7 + 1)
+            completion(entry)
+        }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         var entries: [SimpleEntry] = []
         
+        let currentDate = Date()
+        
+        // Calculate the day index based on the current day of the week
+        let calendar = Calendar.current
+        let currentDayIndex = calendar.component(.weekday, from: currentDate) - 1
+        
         // Calculate the next 7 days
-        for day in 1...7 {
-            let currentDate = Calendar.current.date(byAdding: .day, value: day, to: Date()) ?? Date()
-            let entry = SimpleEntry(date: currentDate, day: day)
+        for day in 0..<7 {
+            let entryDate = calendar.date(byAdding: .day, value: (day + currentDayIndex) % 7, to: currentDate)!
+            
+            let entry = SimpleEntry(date: entryDate, day: (day + currentDayIndex) % 7 + 1)
             entries.append(entry)
         }
         
@@ -46,12 +59,26 @@ struct DailyColorQuoteEntryView : View {
     var body: some View {
         ZStack {
             ColorModel.colorForDay(entry.day)
-                .edgesIgnoringSafeArea(.all)
+//                .edgesIgnoringSafeArea(.all)
+                .padding(-16)
                 .containerBackground(for: .widget) {
                     Color.clear
                 }
-            Text("Quote:")
-//            Text(entry.date, style: .time)
+                .overlay(
+                    VStack {
+                        Text(quoteViewModel.currentQuote?.quote ?? "Yo")
+                            .font(.title3)
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Text("- \(quoteViewModel.currentQuote?.author ?? "Me")")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                    }
+                )
+                .onAppear {
+                    quoteViewModel.loadQuoteForDay(entry.day)
+                }
         }
     }
 }

@@ -14,7 +14,7 @@
 		EF5646642B0E347A00ED65DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5646632B0E347900ED65DA /* WidgetKit.framework */; };
 		EF5646662B0E347A00ED65DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5646652B0E347A00ED65DA /* SwiftUI.framework */; };
 		EF5646752B0E347C00ED65DA /* DailyColorQuoteExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF5646612B0E347900ED65DA /* DailyColorQuoteExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF56468A2B0E513500ED65DA /* Source.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5646892B0E513500ED65DA /* Source.json */; };
+		EF56468A2B0E513500ED65DA /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5646892B0E513500ED65DA /* quotes.json */; };
 		EF56468C2B0E514000ED65DA /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5646852B0E4FA600ED65DA /* QuoteViewModel.swift */; };
 		EF56468D2B0E514000ED65DA /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5646832B0E4EED00ED65DA /* QuoteModel.swift */; };
 		EF56468E2B0E514000ED65DA /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56467A2B0E399C00ED65DA /* ColorModel.swift */; };
@@ -26,7 +26,7 @@
 		EF5646B02B0E540C00ED65DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56466E2B0E347A00ED65DA /* AppIntent.swift */; };
 		EF5646B12B0E540C00ED65DA /* DailyColorQuoteLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56466A2B0E347A00ED65DA /* DailyColorQuoteLiveActivity.swift */; };
 		EF5646B22B0E540C00ED65DA /* DailyColorQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56466C2B0E347A00ED65DA /* DailyColorQuote.swift */; };
-		EF5646B42B0E547100ED65DA /* Source.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5646892B0E513500ED65DA /* Source.json */; };
+		EF5646B42B0E547100ED65DA /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = EF5646892B0E513500ED65DA /* quotes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		EF56467E2B0E3EC300ED65DA /* QuoteOfTheDayWidgetAdv */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuoteOfTheDayWidgetAdv; sourceTree = "<group>"; };
 		EF5646832B0E4EED00ED65DA /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		EF5646852B0E4FA600ED65DA /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
-		EF5646892B0E513500ED65DA /* Source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Source.json; sourceTree = "<group>"; };
+		EF5646892B0E513500ED65DA /* quotes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 				EF56467A2B0E399C00ED65DA /* ColorModel.swift */,
 				EF5646832B0E4EED00ED65DA /* QuoteModel.swift */,
 				EF5646852B0E4FA600ED65DA /* QuoteViewModel.swift */,
-				EF5646892B0E513500ED65DA /* Source.json */,
+				EF5646892B0E513500ED65DA /* quotes.json */,
 				EF5646532B0E33E200ED65DA /* Assets.xcassets */,
 				EF5646552B0E33E200ED65DA /* Preview Content */,
 			);
@@ -242,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5646572B0E33E200ED65DA /* Preview Assets.xcassets in Resources */,
-				EF56468A2B0E513500ED65DA /* Source.json in Resources */,
+				EF56468A2B0E513500ED65DA /* quotes.json in Resources */,
 				EF5646542B0E33E200ED65DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5646B42B0E547100ED65DA /* Source.json in Resources */,
+				EF5646B42B0E547100ED65DA /* quotes.json in Resources */,
 				EF5646A92B0E515200ED65DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

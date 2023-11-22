@@ -12,6 +12,13 @@ class QuoteViewModel: ObservableObject {
 
     func loadQuoteForDay(_ day: Int) {
         let quotes = QuoteProvider.loadQuotes()
+
+        // Ensure the quotes array is not empty
+        guard !quotes.isEmpty else {
+            print("Quotes array is empty.")
+            return
+        }
+
         let quoteIndex = (day - 1) % quotes.count
         currentQuote = quotes[quoteIndex]
     }
