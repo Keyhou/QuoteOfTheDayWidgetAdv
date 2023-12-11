@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var quoteViewModel = QuoteViewModel()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Today's Quote:")
+                .font(.headline)
+                .padding()
+
+            Text(quoteViewModel.currentQuote?.quote ?? "")
+                .font(.body)
+                .padding()
+
+            Text("- \(quoteViewModel.currentQuote?.author ?? "")")
+                .font(.caption)
+                .padding()
+
+            Spacer()
+
+            Button("Load Today's Quote") {
+                // Manually trigger loading a quote for today
+                quoteViewModel.loadQuoteForDay(Calendar.current.component(.weekday, from: Date()))
+            }
+            .padding()
         }
-        .padding()
+        .onAppear {
+            // Load the quote for the current day when the ContentView appears
+            quoteViewModel.loadQuoteForDay(Calendar.current.component(.weekday, from: Date()))
+        }
     }
 }
 
